@@ -9,11 +9,30 @@ import driver.StdOut;
 public class Matrix {
   private int[] matDims = new int[2];
   private int[][] matrix;
+  // TODO: Optional. Only used for saving matrices, should do something about
+  // that. Maybe use a builder.
+  private String name;
 
   private Matrix(int rows, int cols) {
     matDims[0] = rows;
     matDims[1] = cols;
     matrix = new int[rows][cols];
+  }
+
+  public String getMatrixName() {
+    return name;
+  }
+
+  public void setMatrixName(String name) {
+    this.name = name;
+  }
+
+  public int getMatrixVal(int i, int j) {
+    return matrix[i][j];
+  }
+
+  public void setMatrixVal(int value, int i, int j) {
+    this.matrix[i][j] = value;
   }
 
   public static Matrix enterMatrixDimensions() {
@@ -64,14 +83,6 @@ public class Matrix {
     }
     // Add a newline
     StdOut.displayText("");
-  }
-
-  public int getMatrixVal(int i, int j) {
-    return matrix[i][j];
-  }
-
-  public void setMatrixVal(int value, int i, int j) {
-    matrix[i][j] = value;
   }
 
   public void printMatrix() {

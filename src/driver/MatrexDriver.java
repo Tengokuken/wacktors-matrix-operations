@@ -14,10 +14,10 @@ public class MatrexDriver {
       StdOut.displayText(
           "Select an option by entering a number\ncooresponding to the option."
               + "\n 1. Set matrices.\n 2. Add matrices.\n 3. Multiply matrices."
-              + " \n 4. Transpose matrices.");
+              + "\n 4. Transpose matrices.");
       input = in.nextLine().trim();
       switch (input) {
-        // TODO: Eroor checking and formatting
+        // TODO: Error checking and formatting
         case "1":
           // Set matrices
           break;
@@ -34,7 +34,7 @@ public class MatrexDriver {
           // Transpose
           break;
         default:
-          StdOut.displayText("thats not the right op pls do again");
+          StdOut.displayText("thats not the right op pls do again\n");
           break;
 
       }
