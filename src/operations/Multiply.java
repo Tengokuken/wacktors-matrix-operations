@@ -23,10 +23,10 @@ public class Multiply {
       // TODO: Think of a better solution for first and second bc i don't like
       // having this here
       StdOut.displayText("Enter each row of the first matrix. "
-          + "Press enter after each row.");
+          + "\nPress enter after each row.");
       mat1.populateMatrix();
       StdOut.displayText("Enter each row of the second matrix. "
-          + "Press enter after each row.");
+          + "\nPress enter after each row.");
       mat2.populateMatrix();
 
       // Create a result matrix with the correct parameters
