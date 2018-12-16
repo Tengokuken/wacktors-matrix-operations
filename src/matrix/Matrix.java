@@ -6,6 +6,7 @@ import driver.StdOut;
 // TODO: Make this work with StdIn, this shouldnt be taking in input
 // TODO: This only works for integers for now. Make it work for other things in
 // the future
+// TODO: The adding matrix thing
 public class Matrix {
   private int[] matDims = new int[2];
   private int[][] matrix;
@@ -34,7 +35,7 @@ public class Matrix {
   public void setMatrixVal(int value, int i, int j) {
     this.matrix[i][j] = value;
   }
-
+  
   public static Matrix enterMatrixDimensions() {
     Matrix matrix = null;
     String input;
@@ -54,13 +55,16 @@ public class Matrix {
             new Matrix(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]));
       }
     }
+    // Add the matrix to matrix container
+    MatrixContainer.addMatrix(matrix);
     StdOut.displayText("");
     return matrix;
   }
 
   public static Matrix enterMatrixDimensions(int rows, int cols) {
     Matrix matrix = new Matrix(rows, cols);
-
+    // Add the matrix to matrix container
+    MatrixContainer.addMatrix(matrix);
     StdOut.displayText("");
     return matrix;
   }
