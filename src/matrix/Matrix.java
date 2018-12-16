@@ -2,39 +2,78 @@ package matrix;
 
 import java.util.Scanner;
 import driver.StdOut;
+
 // TODO: Make this work with StdIn, this shouldnt be taking in input
-// TODO: This only works for integers for now. Make it work for other things in the future
+// TODO: This only works for integers for now. Make it work for other things in
+// the future
 public class Matrix {
+  private int[] matDims = new int[2];
   private int[][] matrix;
 
-  public Matrix(int rows, int cols) {
+  private Matrix(int rows, int cols) {
+    matDims[0] = rows;
+    matDims[1] = cols;
     matrix = new int[rows][cols];
   }
-  
-  public void populateMatrix(MatrixDims matDims) {
+
+  public static Matrix enterMatrixDimensions() {
+    Matrix matrix = null;
+    String input;
+    boolean validInput = false;
+    Scanner in = new Scanner(System.in);
+    // Count number of spaces, max 2.
+    while (!validInput) {
+      input = in.nextLine().trim();
+      input = input.replaceAll(" +", " ");
+      if (input.length() - input.replaceAll(" ", "").length() != 1)
+        StdOut.displayText("Incorrect number of dims.");
+      else {
+        validInput = true;
+        String[] temp = input.split(" ");
+        // Create the matrix with these dimensions.
+        matrix =
+            new Matrix(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]));
+      }
+    }
+    StdOut.displayText("");
+    return matrix;
+  }
+
+  public static Matrix enterMatrixDimensions(int rows, int cols) {
+    Matrix matrix = new Matrix(rows, cols);
+
+    StdOut.displayText("");
+    return matrix;
+  }
+
+  public int getDims(int n) {
+    return matDims[n];
+  }
+
+  public void populateMatrix() {
     String input;
     Scanner in = new Scanner(System.in);
     // TODO: Check for columns
-    for (int i = 0; i < matDims.getDims(0); i++) {
+    for (int i = 0; i < matDims[0]; i++) {
       input = in.nextLine().trim();
       String[] temp = input.split(" ");
       // Populate the array
-      for (int j = 0; j < matDims.getDims(1); j++) {
+      for (int j = 0; j < matDims[1]; j++) {
         setMatrixVal(Integer.parseInt(temp[j]), i, j);
       }
     }
     // Add a newline
     StdOut.displayText("");
   }
-  
+
   public int getMatrixVal(int i, int j) {
     return matrix[i][j];
   }
-  
+
   public void setMatrixVal(int value, int i, int j) {
     matrix[i][j] = value;
   }
-  
+
   public void printMatrix() {
     // Print the matrix
     // TODO: Use temp solution. Use iterator instead.
