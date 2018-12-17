@@ -8,6 +8,8 @@ If you said yes to any of the above, then this repository will be helpful for yo
 
 # Contents
 As of now, this program can do the following matrix operations:  
+* Creating matrices
+* Listing created matrices
 * Matrix Multiplcation
 
 # Usage
