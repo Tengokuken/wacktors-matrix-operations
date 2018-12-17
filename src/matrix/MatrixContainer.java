@@ -13,8 +13,6 @@ public class MatrixContainer {
   public static Matrix getMatrix(String matrixName) {
     for (Matrix m : matrices) {
       if (m.getMatrixName().equals(matrixName)) {
-        System.out.println("Returned");
-
         return m;
       }
     }

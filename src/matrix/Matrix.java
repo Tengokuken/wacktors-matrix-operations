@@ -52,7 +52,7 @@ public class Matrix {
           + matrix.getDims(1) + " matrix named " + matName + ".\n");
     }
     else
-      StdOut.displayText("There already exists a matrix with that name.");
+      StdOut.displayText("\nThere already exists a matrix with that name.\n");
   }
   
   public static Matrix createMatrix() {
