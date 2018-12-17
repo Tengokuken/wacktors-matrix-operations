@@ -1,7 +1,7 @@
 package matrix;
 
 import java.util.ArrayList;
-
+// TODO: Make this non-static
 public class MatrixContainer {
   private static ArrayList<Matrix> matrices = new ArrayList<Matrix>();
 
@@ -33,5 +33,8 @@ public class MatrixContainer {
   public static boolean isEmpty() {
     return (matrices.size() == 0);
   }
-
+  
+  public static void listMatrices() {
+    
+  }
 }
