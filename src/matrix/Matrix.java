@@ -36,14 +36,23 @@ public class Matrix {
     this.matrix[i][j] = value;
   }
   
-  public static Matrix createNamedMatrix() {
-    String input, matName;
+  public static void createNamedMatrix() {
+    String matName;
     Matrix matrix = null;
     Scanner in = new Scanner(System.in);
-    StdOut.displayText("Give the matrix a variable name.");
+    StdOut.displayText("\nGive the matrix a variable name.");
     matName = in.nextLine().trim();
-    // Check if a matrix with that same name already exists
-    return matrix;
+    // Check if a matrix with that same name already exists and create it if
+    // there isn't an existing one with that name
+    if (MatrixContainer.getMatrix(matName) == null) {
+      matrix = Matrix.createMatrix();
+      matrix.setMatrixName(matName);
+      matrix.populateMatrix();
+      StdOut.displayText("\nCreated a " + matrix.getDims(0) + "x"
+          + matrix.getDims(1) + " matrix named " + matName + ".\n");
+    }
+    else
+      StdOut.displayText("There already exists a matrix with that name.");
   }
   
   public static Matrix createMatrix() {
@@ -52,6 +61,8 @@ public class Matrix {
     boolean validInput = false;
     Scanner in = new Scanner(System.in);
     // Count number of spaces, max 2.
+    StdOut.displayText("\nEnter dimensions of your matrix. " 
+        + "\nLeave a space between numbers.");
     while (!validInput) {
       input = in.nextLine().trim();
       input = input.replaceAll(" +", " ");
@@ -86,6 +97,8 @@ public class Matrix {
   public void populateMatrix() {
     String input;
     Scanner in = new Scanner(System.in);
+    StdOut.displayText("Enter each row of your matrix. "
+        + "\nPress enter after each row.");
     // TODO: Check for columns
     for (int i = 0; i < matDims[0]; i++) {
       input = in.nextLine().trim();
@@ -95,8 +108,6 @@ public class Matrix {
         setMatrixVal(Integer.parseInt(temp[j]), i, j);
       }
     }
-    // Add a newline
-    StdOut.displayText("");
   }
 
   public void printMatrix() {

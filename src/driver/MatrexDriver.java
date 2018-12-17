@@ -1,6 +1,7 @@
 package driver;
 
 import java.util.Scanner;
+import matrix.Matrix;
 import operations.*;
 
 public class MatrexDriver {
@@ -13,13 +14,14 @@ public class MatrexDriver {
     while (!validInput) {
       StdOut.displayText(
           "Select an option by entering a number\ncooresponding to the option."
-              + "\n 1. Set matrices.\n 2. Add matrices.\n 3. Multiply matrices."
+              + "\n 1. Create and manage matrices.\n 2. Add matrices.\n 3. Multiply matrices."
               + "\n 4. Transpose matrices.");
       input = in.nextLine().trim();
       switch (input) {
         // TODO: Error checking and formatting
         case "1":
-          // Set matrices
+          // Create and manage matrices
+          Matrix.createNamedMatrix();
           break;
         case "2":
           // Add matrices
