@@ -11,13 +11,13 @@ public class Multiply {
     // Create the first array
     StdOut.displayText("Enter dimensions of the first matrix."
         + "\nLeave a space between numbers.");
-    Matrix mat1 = Matrix.enterMatrixDimensions();
+    Matrix mat1 = Matrix.createMatrix();
     StdOut.displayText("Enter dimensions of the second matrix."
         + "\nLeave a space between numbers.");
     // Create the second array
     // TODO: I probably can do the check earlier, before creasting the matrix.
     // But if I change it up, it may not future proof it.
-    Matrix mat2 = Matrix.enterMatrixDimensions();
+    Matrix mat2 = Matrix.createMatrix();
     // Check if the matrices can be multiplied by their dimensions.
     if (canMultiply(mat1.getDims(1), mat2.getDims(0))) {
       // TODO: Think of a better solution for first and second bc i don't like
@@ -31,7 +31,7 @@ public class Multiply {
 
       // Create a result matrix with the correct parameters
       Matrix multMat =
-          Matrix.enterMatrixDimensions(mat1.getDims(0), mat2.getDims(1));
+          Matrix.createMatrix(mat1.getDims(0), mat2.getDims(1));
       int sum = 0;
       // Matrix multiply matrix 1 and matrix 2
       for (int i = 0; i < mat1.getDims(0); i++) {

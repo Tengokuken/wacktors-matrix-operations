@@ -36,7 +36,17 @@ public class Matrix {
     this.matrix[i][j] = value;
   }
   
-  public static Matrix enterMatrixDimensions() {
+  public static Matrix createNamedMatrix() {
+    String input, matName;
+    Matrix matrix = null;
+    Scanner in = new Scanner(System.in);
+    StdOut.displayText("Give the matrix a variable name.");
+    matName = in.nextLine().trim();
+    // Check if a matrix with that same name already exists
+    return matrix;
+  }
+  
+  public static Matrix createMatrix() {
     Matrix matrix = null;
     String input;
     boolean validInput = false;
@@ -61,14 +71,14 @@ public class Matrix {
     return matrix;
   }
 
-  public static Matrix enterMatrixDimensions(int rows, int cols) {
+  public static Matrix createMatrix(int rows, int cols) {
     Matrix matrix = new Matrix(rows, cols);
     // Add the matrix to matrix container
     MatrixContainer.addMatrix(matrix);
     StdOut.displayText("");
     return matrix;
   }
-
+  
   public int getDims(int n) {
     return matDims[n];
   }
