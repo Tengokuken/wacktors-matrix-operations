@@ -25,8 +25,9 @@ public class MatrexDriver {
           while (!validInput) {
             // Create and manage matrices
             StdOut.displayText("\nWhat would you like to do?"
-                + "\n 1. Create a matrix.\n 2. Delete a matrix."
-                + "\n 3. List matrices.\n 4. Return to previous screen.");
+                + "\n 1. Create a matrix.\n 2. Edit a matrix."
+                + "\n 3. Delete a matrix.\n 4. List matrices."
+                + "\n 5. Return to previous screen.");
             input = in.nextLine().trim();
             switch (input) {
               case "1":
@@ -34,13 +35,15 @@ public class MatrexDriver {
                 Matrix.createNamedMatrix();
                 break;
               case "2":
+                // Edit a matrix
+              case "3":
                 // TODO: Delete a matrix from the list
                 break;
-              case "3":
+              case "4":
                 // List all matrices
                 MatrixContainer.listMatrices();
                 break;
-              case "4":
+              case "5":
                 validInput = true;
                 // Return to previous screen
                 break;
@@ -53,12 +56,12 @@ public class MatrexDriver {
           break;
         case "2":
           // Add matrices
-          StdOut.displayText("");
-          Multiply multiply = new Multiply();
-          multiply.multiply();
           break;
         case "3":
           // Matrix multiplication
+          StdOut.displayText("");
+          Multiply multiply = new Multiply();
+          multiply.multiply();
           break;
         case "4":
           // Transpose
