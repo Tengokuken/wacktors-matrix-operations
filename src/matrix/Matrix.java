@@ -12,7 +12,7 @@ public class Matrix {
   private int[][] matrix;
   // TODO: Optional. Only used for saving matrices, should do something about
   // that. Maybe use a builder.
-  private String name;
+  private String matrixName;
 
   private Matrix(int rows, int cols) {
     matDims[0] = rows;
@@ -21,11 +21,11 @@ public class Matrix {
   }
 
   public String getMatrixName() {
-    return name;
+    return matrixName;
   }
 
   public void setMatrixName(String name) {
-    this.name = name;
+    this.matrixName = name;
   }
 
   public int getMatrixVal(int i, int j) {
@@ -49,7 +49,7 @@ public class Matrix {
       matrix.setMatrixName(matName);
       matrix.populateMatrix();
       StdOut.displayText("\nCreated a " + matrix.getDims(0) + "x"
-          + matrix.getDims(1) + " matrix named " + matName + ".\n");
+          + matrix.getDims(1) + " matrix named " + matName + ".");
     }
     else
       StdOut.displayText("\nThere already exists a matrix with that name.\n");
@@ -137,4 +137,10 @@ public class Matrix {
     // Print the representation of the matrix.
     StdOut.displayText("Resultant matrix is: \n" + printedMatrix + "\n");
   }
+  
+  @Override
+  public String toString() {
+    return ("A " + this.matDims[0] + "x" + this.matDims[1] + " matrix with"
+        + " the variable name " + this.matrixName);
+  } 
 }

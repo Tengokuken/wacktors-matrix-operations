@@ -1,7 +1,8 @@
 package matrix;
 
 import java.util.ArrayList;
-// TODO: Make this non-static
+import driver.StdOut;
+// TODO: Make this non-static and use iterator
 public class MatrixContainer {
   private static ArrayList<Matrix> matrices = new ArrayList<Matrix>();
 
@@ -35,6 +36,9 @@ public class MatrixContainer {
   }
   
   public static void listMatrices() {
-    
+    StdOut.displayText("Here is a list of the existing matrices:");
+    for (Matrix m : matrices) {
+      StdOut.displayText(m.toString());
+    }
   }
 }

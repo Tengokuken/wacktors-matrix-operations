@@ -38,6 +38,7 @@ public class MatrexDriver {
                 break;
               case "3":
                 // List all matrices
+                MatrixContainer.listMatrices();
                 break;
               case "4":
                 validInput = true;
