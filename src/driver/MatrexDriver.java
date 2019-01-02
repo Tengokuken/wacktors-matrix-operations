@@ -56,6 +56,9 @@ public class MatrexDriver {
           break;
         case "2":
           // Add matrices
+          StdOut.displayText("");
+          Add add = new Add();
+          add.add();
           break;
         case "3":
           // Matrix multiplication

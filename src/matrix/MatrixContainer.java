@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import driver.StdOut;
 // TODO: Make this non-static and use iterator
 public class MatrixContainer {
-  private static ArrayList<Matrix> matrices = new ArrayList<Matrix>();
+  public static ArrayList<Matrix> matrices = new ArrayList<Matrix>();
 
   public static void addMatrix(Matrix matrix) {
     // Add the matrix to storage
