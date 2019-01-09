@@ -11,12 +11,13 @@ public class MatrexDriver {
   public static void main(String[] args) {
     String input;
     boolean validInput = false;
+    boolean running = true;
     Scanner in = new Scanner(System.in);
-    while (true) {
+    while (running) {
       StdOut.displayText(
           "Select an option by entering a number\ncooresponding to the option."
               + "\n 1. Create and manage matrices.\n 2. Add matrices.\n 3. Multiply matrices."
-              + "\n 4. Transpose matrices.");
+              + "\n 4. Transpose matrices. \n 5. Exit.");
       input = in.nextLine().trim();
       switch (input) {
         // TODO: Error checking and formatting
@@ -69,11 +70,15 @@ public class MatrexDriver {
         case "4":
           // Transpose
           break;
+        case "5":
+          // Close program
+          running = false;
+          break;
         default:
           StdOut.displayText("thats not the right op pls do again\n");
           break;
-
       }
     }
+    in.close();
   }
 }
