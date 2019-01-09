@@ -7,6 +7,7 @@ import matrix.*;
 public class Multiply {
 
   public void multiply() {
+    // TODO: Make the option for making matrices and mult
     Scanner in = new Scanner(System.in);
     // Create the first array
     Matrix mat1 = Matrix.createMatrix();
