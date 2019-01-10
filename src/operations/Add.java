@@ -18,7 +18,8 @@ public class Add {
       Matrix mat2 = Matrix.createMatrix();
       // Check if they are able to add.
       // TODO: Check if they are like the same using a new thing maybe
-      if (mat1.getDims(0) == mat2.getDims(0) && mat1.getDims(0) == mat2.getDims(0)) {
+      if (mat1.getDims(0) == mat2.getDims(0)
+          && mat1.getDims(0) == mat2.getDims(0)) {
         // TODO: Think of a better solution for first and second bc i don't like
         // having this here
         mat1.populateMatrix();
