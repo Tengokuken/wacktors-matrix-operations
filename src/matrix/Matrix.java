@@ -53,7 +53,6 @@ public class Matrix {
     }
     else
       StdOut.displayText("\nThere already exists a matrix with that name.\n");
-    in.close();
   }
   
   public static Matrix createMatrix() {
@@ -77,7 +76,6 @@ public class Matrix {
             new Matrix(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]));
       }
     }
-    in.close();
     // Add the matrix to matrix container
     MatrixContainer.addMatrix(matrix);
     StdOut.displayText("");
@@ -110,7 +108,6 @@ public class Matrix {
         setMatrixVal(Integer.parseInt(temp[j]), i, j);
       }
     }
-    in.close();
   }
 
   public void printMatrix() {
