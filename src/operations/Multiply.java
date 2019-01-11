@@ -59,7 +59,7 @@ public class Multiply {
         StdOut.displayText("Cannot multiply an " + mat1.getDims(0) + "x"
             + mat1.getDims(1) + " with an " + mat2.getDims(0) + "x"
             + mat2.getDims(1) + "matrix.");
-      // TODO: save the matrix as its own
+      // TODO: save the matrix as its own. Make it a function for operations
     }
   }
 
