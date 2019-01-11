@@ -141,12 +141,12 @@ public class Matrix {
       // Add a "[" character to signify the beginning of the row.
       printedMatrix += "[";
       // Go over each column in each row and store its contents.
-      for (int col = 0; col < matrix.length; col++) {
+      for (int col = 0; col < matrix[row].length; col++) {
         // Append <col> to <matrix> along with 1 whitespace character.
         printedMatrix += matrix[row][col];
         // If the value added was not the last entry in the row, add a comma
         // followed by a 1 space.
-        if (matrix.length - col > 1) {
+        if (matrix[row].length - col > 1) {
           printedMatrix += ", ";
         }
       }
