@@ -15,11 +15,11 @@ public class Multiply {
     if (MatrixContainer.matrices.isEmpty()) {
       StdOut.displayText("You have no existing matrices.");
       // Create the first array
-      Matrix mat1 = Matrix.createMatrix();
+      Matrix mat1 = Matrix.createTempMatrix();
       // Create the second array
       // TODO: I probably can do the check earlier, before creasting the matrix.
       // But if I change it up, it may not future proof it.
-      Matrix mat2 = Matrix.createMatrix();
+      Matrix mat2 = Matrix.createTempMatrix();
       // Check if the matrices can be multiplied by their dimensions.
       // TODO: Check if they are like the same using a new thing
       if (canMultiply(mat1.getDims(1), mat2.getDims(0))) {
@@ -28,7 +28,7 @@ public class Multiply {
         mat1.populateMatrix();
         mat2.populateMatrix();
         // Create a result matrix with the correct parameters
-        Matrix multMat = Matrix.createMatrix(mat1.getDims(0), mat2.getDims(1));
+        Matrix multMat = Matrix.createTempMatrix(mat1.getDims(0), mat2.getDims(1));
         int sum = 0;
         // Matrix multiply matrix 1 and matrix 2
         for (int i = 0; i < mat1.getDims(0); i++) {
@@ -47,7 +47,7 @@ public class Multiply {
           input = in.nextLine().toUpperCase().trim();
           if (input.equals("Y")) {
             validInput = true;
-            Matrix.createNamedMatrix();
+            Matrix.saveMatrix(multMat);
           } else if (input.equals("N")) {
             validInput = true;
           } else {

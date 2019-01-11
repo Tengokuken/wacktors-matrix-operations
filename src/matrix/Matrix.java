@@ -35,7 +35,8 @@ public class Matrix {
   public void setMatrixVal(int value, int i, int j) {
     this.matrix[i][j] = value;
   }
-  
+
+  // TODO For the next two functions have it loop
   public static void createNamedMatrix() {
     String matName;
     Matrix matrix = null;
@@ -50,18 +51,25 @@ public class Matrix {
       matrix.populateMatrix();
       StdOut.displayText("\nCreated a " + matrix.getDims(0) + "x"
           + matrix.getDims(1) + " matrix named " + matName + ".");
-    }
-    else
+    } else
       StdOut.displayText("\nThere already exists a matrix with that name.\n");
   }
   
   public static Matrix createMatrix() {
+    Matrix matrix = createTempMatrix();
+    // Add the matrix to matrix container
+    MatrixContainer.addMatrix(matrix);
+    StdOut.displayText("");
+    return matrix;
+  }
+
+  public static Matrix createTempMatrix() {
     Matrix matrix = null;
     String input;
     boolean validInput = false;
     Scanner in = new Scanner(System.in);
     // Count number of spaces, max 2.
-    StdOut.displayText("\nEnter dimensions of your matrix. " 
+    StdOut.displayText("\nEnter dimensions of your matrix. "
         + "\nLeave a space between numbers.");
     while (!validInput) {
       input = in.nextLine().trim();
@@ -76,20 +84,33 @@ public class Matrix {
             new Matrix(Integer.parseInt(temp[0]), Integer.parseInt(temp[1]));
       }
     }
-    // Add the matrix to matrix container
-    MatrixContainer.addMatrix(matrix);
     StdOut.displayText("");
     return matrix;
   }
 
-  public static Matrix createMatrix(int rows, int cols) {
+  public static Matrix createTempMatrix(int rows, int cols) {
     Matrix matrix = new Matrix(rows, cols);
-    // Add the matrix to matrix container
-    MatrixContainer.addMatrix(matrix);
     StdOut.displayText("");
     return matrix;
   }
-  
+
+  public static void saveMatrix(Matrix matrix) {
+    String matName;
+    Scanner in = new Scanner(System.in);
+    StdOut.displayText("\nGive the matrix a variable name.");
+    matName = in.nextLine().trim();
+    // Check if a matrix with that same name already exists and create it if
+    // there isn't an existing one with that name
+    if (MatrixContainer.getMatrix(matName) == null) {
+      matrix.setMatrixName(matName);
+      StdOut.displayText("\nSaved a " + matrix.getDims(0) + "x"
+          + matrix.getDims(1) + " matrix named " + matName + ".");
+      MatrixContainer.addMatrix(matrix);
+    } else
+      StdOut.displayText("\nThere already exists a matrix with that name.\n");
+  }
+
+
   public int getDims(int n) {
     return matDims[n];
   }
@@ -97,8 +118,8 @@ public class Matrix {
   public void populateMatrix() {
     String input;
     Scanner in = new Scanner(System.in);
-    StdOut.displayText("Enter each row of your matrix. "
-        + "\nPress enter after each row.");
+    StdOut.displayText(
+        "Enter each row of your matrix. " + "\nPress enter after each row.");
     // TODO: Check for columns
     for (int i = 0; i < matDims[0]; i++) {
       input = in.nextLine().trim();
@@ -137,10 +158,10 @@ public class Matrix {
     // Print the representation of the matrix.
     StdOut.displayText("Resultant matrix is: \n" + printedMatrix + "\n");
   }
-  
+
   @Override
   public String toString() {
     return ("A " + this.matDims[0] + "x" + this.matDims[1] + " matrix with"
         + " the variable name " + this.matrixName);
-  } 
+  }
 }
