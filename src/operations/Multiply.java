@@ -1,12 +1,15 @@
 package operations;
 
-import java.util.Scanner;
 import driver.StdOut;
 import matrix.*;
+import java.util.Scanner;
 
 public class Multiply {
 
   public void multiply() {
+    String input;
+    boolean validInput = false;
+    Scanner in = new Scanner(System.in);
     // Check if there are any premade matrices. If so, ask if the user would
     // like to use them.
     if (MatrixContainer.matrices.isEmpty()) {
@@ -38,6 +41,19 @@ public class Multiply {
           }
         }
         multMat.printMatrix();
+        // Ask to save the result matrix
+        while (!validInput) {
+          StdOut.displayText("Would you like to save this matrix? (Y/N)");
+          input = in.nextLine().toUpperCase().trim();
+          if (input.equals("Y")) {
+            validInput = true;
+            Matrix.createNamedMatrix();
+          } else if (input.equals("N")) {
+            validInput = true;
+          } else {
+            StdOut.displayText("Please enter Y or N.");
+          }
+        }
       } else
         // Print an error about the incorrect dimensions.
         StdOut.displayText("Cannot multiply an " + mat1.getDims(0) + "x"
